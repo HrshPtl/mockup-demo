@@ -1,0 +1,32 @@
+<div class="main-card">
+
+  <div fxLayout="row wrap" class="title-card">
+    <div fxFlex="30" fxFlex.xs="30" fxFlex.sm="30" class="title-card-img">
+      <img src="../assets/images/projects.png" alt="projects image" class="title-img">
+    </div>
+    <div fxFlex="70" fxFlex.xs="70" fxFlex.sm="70" class="title-card-text">
+      <h2 class="title-text">Our environmental projects are providing</h2>
+      <h2 class="title-text">many environmental benefits around the word.</h2>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayout.sm="column">
+    <div *ngFor="let data of dataDetails; let i=index;" fxFlex="50" fxFlex.xs="100" fxFlex.sm="100"
+      [ngClass]="{'tile-card-left': i%2 === 0, 'tile-card-right': i%2 !== 0}">
+      <div class="tile-content">
+        <div style="position: relative;">
+          <img src="../assets/images/tile_image.jpg" alt="Photo of a Shiba Inu" class="tile-img">
+          <div class="img-text">{{data.title}}</div>
+          <div class="img-btn" *ngIf='data.isBuyAllow'>{{data.buttonTitle}}</div>
+          <div class="img-price" *ngIf='data.isBuyAllow'>{{data.price}}</div>
+        </div>
+        <div class="tile-content-text">
+          <p class="tile-content-title">{{data.subTitle}}</p>
+          <p class="tile-content-measurement">{{data.lbs}}</p>
+          <p>{{data.subText}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
